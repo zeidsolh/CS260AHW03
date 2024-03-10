@@ -10,6 +10,6 @@
   "author": "CS 160 course staff",
   "license": "UNLICENSED",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.3"
   }
 }

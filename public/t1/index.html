@@ -170,6 +170,7 @@
         </div>
         <div class="planet-info">
           <h2>Alekhine</h2>
+          <h3 class="response-reason"></h3>
 
           <p>
             Continents — or, more precisely, islands — on the largely aquatic
@@ -217,6 +218,7 @@
         </div>
         <div class="planet-info">
           <h2>Janon</h2>
+          <h3 class="response-reason"></h3>
 
           <p>
             The planet Janon is filled to the brim with nature, both oddly
@@ -269,6 +271,7 @@
         </div>
         <div class="planet-info">
           <h2>Guilin</h2>
+          <h3 class="response-reason"></h3>
 
           <p>
             Owing to its regular seismic activity, the planet Guilin is a haven
@@ -315,6 +318,7 @@
         </div>
         <div class="planet-info">
           <h2>Jayne</h2>
+          <h3 class="response-reason"></h3>
 
           <p>
             The planet Jayne, despite its hot weather and limited access to
@@ -413,6 +417,41 @@
           event.preventDefault();
 
           // YOUR CODE HERE
+          // use navigateToBlurb to navigate to the planet 1
+
+          // import fetch from 'node-fetch'; // for node.js
+
+          // import fetch from 'node-fetch'; // for node.js
+
+          const response = await fetch(
+            'https://noggin.rea.gent/legitimate-albatross-7536',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer rg_v1_oteugbvesf89crez079alufzg4o0jgqw6ket_ngk',
+              },
+              body: JSON.stringify({
+                // fill variables here.
+                "statement": "",
+              }),
+            }
+          ).then(response => response.text());
+
+          // extract from the response the planet name and use navigateToBlurb to navigate to the planet
+          // response contains a paragrapf of text and contains one of the planet names
+          // use the response to navigate to the planet
+
+          // extract the planet name from the response
+          const planetName = response.split(" ").filter(word => ["Alekhine", "Janon", "Guilin", "Jayne"].includes(word))[0];
+
+          navigateToBlurb(planetName);
+
+          // Once you navigate to the planet, inside response-reason, set the text to the response
+          document.querySelector(`#${planetName.toLowerCase()}-blurb .response-reason`).textContent = response;
+
+
+
         });
     </script>
   </body>
