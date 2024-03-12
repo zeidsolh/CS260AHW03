@@ -433,7 +433,7 @@
               },
               body: JSON.stringify({
                 // fill variables here.
-                "statement": "",
+                "statement": document.getElementById("subject-input").value,
               }),
             }
           ).then(response => response.text());
