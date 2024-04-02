@@ -127,7 +127,12 @@
             ).then(response => response.text());
 
             // YOUR CODE HERE
-            addToGallery(dataUrl, response.toLowerCase());
+            let sectionId = response.toLowerCase();
+            if (sectionId !== 'summer' && sectionId !== 'easter' && sectionId !== 'christmas') {
+              sectionId = 'uncategorized';
+            }
+            
+            addToGallery(dataUrl, sectionId);
             document.getElementById('loadingIndicator').style.display = 'none';
           };
 
